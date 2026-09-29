@@ -1,0 +1,108 @@
+{
+ "vectors": [
+  {
+   "vector_id": "A01",
+   "path": "ca_cases/A01.json"
+  },
+  {
+   "vector_id": "A02",
+   "path": "ca_cases/A02.json"
+  },
+  {
+   "vector_id": "A03",
+   "path": "ca_cases/A03.json"
+  },
+  {
+   "vector_id": "A04",
+   "path": "ca_cases/A04.json"
+  },
+  {
+   "vector_id": "A05",
+   "path": "ca_cases/A05.json"
+  },
+  {
+   "vector_id": "A06",
+   "path": "ca_cases/A06.json"
+  },
+  {
+   "vector_id": "A07",
+   "path": "ca_cases/A07.json"
+  },
+  {
+   "vector_id": "A08",
+   "path": "ca_cases/A08.json"
+  },
+  {
+   "vector_id": "B01",
+   "path": "ca_cases/B01.json"
+  },
+  {
+   "vector_id": "B02",
+   "path": "ca_cases/B02.json"
+  },
+  {
+   "vector_id": "B03",
+   "path": "ca_cases/B03.json"
+  },
+  {
+   "vector_id": "B04",
+   "path": "ca_cases/B04.json"
+  },
+  {
+   "vector_id": "B05",
+   "path": "ca_cases/B05.json"
+  },
+  {
+   "vector_id": "B06",
+   "path": "ca_cases/B06.json"
+  },
+  {
+   "vector_id": "B07",
+   "path": "ca_cases/B07.json"
+  },
+  {
+   "vector_id": "B08",
+   "path": "ca_cases/B08.json"
+  },
+  {
+   "vector_id": "E01",
+   "path": "ca_cases/E01.json"
+  },
+  {
+   "vector_id": "E02",
+   "path": "ca_cases/E02.json"
+  },
+  {
+   "vector_id": "E03",
+   "path": "ca_cases/E03.json"
+  },
+  {
+   "vector_id": "E04",
+   "path": "ca_cases/E04.json"
+  },
+  {
+   "vector_id": "E05",
+   "path": "ca_cases/E05.json"
+  },
+  {
+   "vector_id": "E06",
+   "path": "ca_cases/E06.json"
+  },
+  {
+   "vector_id": "E07",
+   "path": "ca_cases/E07.json"
+  },
+  {
+   "vector_id": "E08",
+   "path": "ca_cases/E08.json"
+  },
+  {
+   "vector_id": "E09",
+   "path": "ca_cases/E09.json"
+  },
+  {
+   "vector_id": "E10",
+   "path": "ca_cases/E10.json"
+  }
+ ]
+}

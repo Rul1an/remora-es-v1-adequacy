@@ -1,0 +1,873 @@
+{
+  "acknowledged_digests": 0,
+  "adequate": false,
+  "control_status": "killed",
+  "corpus_digest": null,
+  "declared_total": 103,
+  "diagnostic_channel_declared": false,
+  "equivalent": 0,
+  "failures": [
+    "44 mutant(s) survived; the required score is 100% of non-equivalent mutants"
+  ],
+  "hole_ratio": 0.0,
+  "killed": 59,
+  "known_holes": 0,
+  "manifest": "subject/ca_row2-guidance.manifest.json",
+  "manifest_sha256": "sha256:a6349f7c3cff1ca9f599966efb859bb3eaaee9d2424c63c567d4ea4b14733ed2",
+  "mutants": [
+    {
+      "group": "remora",
+      "how": "harness detects a change on this path",
+      "label": "CONTROL positive: _unknown returns ESTABLISHED",
+      "moved": 18,
+      "scope": "declared",
+      "verdict": "control-killed"
+    },
+    {
+      "group": "remora",
+      "how": "pinned outcomes stayed unchanged under a declared inert transformation",
+      "label": "CONTROL inert: docstring edit",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "control-unchanged"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] admission_accounting: guard 'execution_observation_unaccepted_or_missing' half `o.get(\"effect_source_accepted\") is not True` removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[1] admission_accounting: guard 'execution_observation_unaccepted_or_missing' half `o.get(\"effect_seen\") is not True` removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[1] admission_accounting: guard 'scope_unaccepted_or_missing' removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] admission_accounting: guard 'admission_observation_unaccepted' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[1] admission_accounting: guard 'admission_presence_unknown' removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] admission_accounting: guard 'admission_requirement_not_defined' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] admission_accounting: guard 'observation_window_open' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] admission_accounting: guard 'admission_coverage_incomplete' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[1] tested_route_enforcement: guard 'route_observation_unaccepted_or_missing' removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] tested_route_enforcement: guard 'target_or_operation_not_bound' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] tested_route_enforcement: guard 'alternative_route_not_established' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[1] tested_route_enforcement: guard 'protected_effect_observation_unaccepted' removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] tested_route_enforcement: guard 'protected_effect_unknown' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] tested_route_enforcement: guard 'no_effect_observation_not_complete' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] tested_route_enforcement: guard 'valid_control_missing_or_incomparable' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] tested_route_enforcement: guard 'refusal_not_attributed_to_required_boundary' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] postcondition_observed: guard 'readback_unavailable' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] postcondition_observed: guard 'readback_source_not_accepted' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] postcondition_observed: guard 'target_or_predicate_not_bound' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] postcondition_observed: guard 'readback_stale_or_time_unbound' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] postcondition_observed: guard 'declared_settlement_point_not_reached' removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[1] postcondition_observed: guard 'state_value_missing' half `\"expected_state\" not in o` removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "unexpected-exit",
+      "label": "[1] postcondition_observed: guard 'state_value_missing' half `\"observed_state\" not in o` removed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[1] admission_accounting: admission_matches check removed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "3 vector(s) moved",
+      "label": "[2] absent admission returned as violated after the presence check",
+      "moved": 3,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "3 vector(s) moved",
+      "label": "[3] no observed effect credited as enforcement, skipping window/control/attribution",
+      "moved": 3,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[4] admission_accounting: every `is True` check relaxed to truthiness",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[4] tested_route_enforcement: every `is True` check relaxed to truthiness",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[4] postcondition_observed: every `is True` check relaxed to truthiness",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[5] postcondition: canonical comparison replaced by raw equality",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] admission_accounting: guards 'execution_observation_unaccepted_or_missing' and 'scope_unaccepted_or_missing' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] admission_accounting: guards 'admission_presence_unknown' and 'admission_requirement_not_defined' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] admission_accounting: guards 'admission_requirement_not_defined' and 'observation_window_open' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] admission_accounting: guards 'observation_window_open' and 'admission_coverage_incomplete' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] tested_route_enforcement: guards 'route_observation_unaccepted_or_missing' and 'target_or_operation_not_bound' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] tested_route_enforcement: guards 'target_or_operation_not_bound' and 'alternative_route_not_established' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] tested_route_enforcement: guards 'alternative_route_not_established' and 'protected_effect_observation_unaccepted' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] tested_route_enforcement: guards 'protected_effect_unknown' and 'no_effect_observation_not_complete' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] tested_route_enforcement: guards 'no_effect_observation_not_complete' and 'valid_control_missing_or_incomparable' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[6] tested_route_enforcement: guards 'valid_control_missing_or_incomparable' and 'refusal_not_attributed_to_required_boundary' swapped",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] postcondition_observed: guards 'readback_unavailable' and 'readback_source_not_accepted' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] postcondition_observed: guards 'readback_source_not_accepted' and 'target_or_predicate_not_bound' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] postcondition_observed: guards 'target_or_predicate_not_bound' and 'readback_stale_or_time_unbound' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] postcondition_observed: guards 'readback_stale_or_time_unbound' and 'declared_settlement_point_not_reached' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[6] postcondition_observed: guards 'declared_settlement_point_not_reached' and 'state_value_missing' swapped",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "2 vector(s) moved",
+      "label": "[6] tested_route_enforcement: attribution checked before the observed-effect violation (B01 precedence)",
+      "moved": 2,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[7] terminal 'covering_admission_observed_for_this_execution': ESTABLISHED flipped to VIOLATED",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[7] terminal 'mandatory_admission_absent_in_complete_bounded_history': VIOLATED flipped to ESTABLISHED",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[7] terminal 'accepted_effect_observed_outside_required_pep': VIOLATED flipped to ESTABLISHED",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[7] terminal 'named_route_refused_at_required_boundary_in_test_scope': ESTABLISHED flipped to VIOLATED",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[7] terminal 'declared_postcondition_observed_at_named_point': ESTABLISHED flipped to VIOLATED",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[7] terminal 'declared_postcondition_disagreed_at_named_point': VIOLATED flipped to ESTABLISHED",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'execution_observation_unaccepted_or_missing' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'scope_unaccepted_or_missing' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'admission_observation_unaccepted' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'candidate_admission_does_not_establish_a_covering_admission' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'admission_presence_unknown' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'admission_requirement_not_defined' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'observation_window_open' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'admission_coverage_incomplete' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'route_observation_unaccepted_or_missing' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'target_or_operation_not_bound' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'alternative_route_not_established' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'protected_effect_observation_unaccepted' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'protected_effect_unknown' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'no_effect_observation_not_complete' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'valid_control_missing_or_incomparable' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'refusal_not_attributed_to_required_boundary' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'readback_unavailable' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'readback_source_not_accepted' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'target_or_predicate_not_bound' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'readback_stale_or_time_unbound' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'declared_settlement_point_not_reached' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[8] reason 'state_value_missing' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'covering_admission_observed_for_this_execution' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'mandatory_admission_absent_in_complete_bounded_history' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'accepted_effect_observed_outside_required_pep' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'named_route_refused_at_required_boundary_in_test_scope' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'declared_postcondition_observed_at_named_point' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[8] reason 'declared_postcondition_disagreed_at_named_point' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "18 vector(s) moved",
+      "label": "[G] _result: guidance never attached",
+      "moved": 18,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'execution_observation_unaccepted_or_missing' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[G] guidance decisive_if for 'scope_unaccepted_or_missing' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'admission_observation_unaccepted' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'candidate_admission_does_not_establish_a_covering_admission' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[G] guidance decisive_if for 'admission_presence_unknown' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'admission_requirement_not_defined' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'observation_window_open' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'admission_coverage_incomplete' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[G] guidance decisive_if for 'route_observation_unaccepted_or_missing' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'target_or_operation_not_bound' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'alternative_route_not_established' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "no vector distinguishes it. An implementation can delete this rule and still reproduce the digest",
+      "label": "[G] guidance decisive_if for 'protected_effect_observation_unaccepted' changed",
+      "moved": 0,
+      "scope": "declared",
+      "verdict": "survived"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'protected_effect_unknown' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'no_effect_observation_not_complete' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'valid_control_missing_or_incomparable' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'refusal_not_attributed_to_required_boundary' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'readback_unavailable' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'readback_source_not_accepted' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'target_or_predicate_not_bound' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'readback_stale_or_time_unbound' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'declared_settlement_point_not_reached' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    },
+    {
+      "group": "remora",
+      "how": "1 vector(s) moved",
+      "label": "[G] guidance decisive_if for 'state_value_missing' changed",
+      "moved": 1,
+      "scope": "declared",
+      "verdict": "killed"
+    }
+  ],
+  "originals_unverified_against_head": [],
+  "out_of_scope_ratio": 0.0,
+  "runner": "process",
+  "schema": "corpus-adequacy.report.v0",
+  "score_means": "percent of author-declared in-scope rules killed; NOT percent of the rules the implementation actually has. Silent mutants count in the denominator and never the numerator. Without diagnostic_from the silent class is unreachable, so a zero there means it was not measured, not that none exist",
+  "score_percent": 57.3,
+  "silent": 0,
+  "survived": 44,
+  "tool_commit": "5fa2ff587497b00ac684a767335b9068f7e520a6",
+  "tool_content_sha256": "sha256:5258816bb0b8933466a34b42651467cde11845fbf36f5e7f18a9176839a5cd5e",
+  "tool_source_state": "exact",
+  "tool_version": "0.7.0",
+  "unexercised_out_of_scope": 0,
+  "unproved": 0
+}

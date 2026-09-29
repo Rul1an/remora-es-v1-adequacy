@@ -1,0 +1,559 @@
+{
+ "schema": "corpus-adequacy.manifest.v0",
+ "runner": "process",
+ "repo_root": ".",
+ "implementation": "checker.py",
+ "implementation_sources": [
+  "checker.py"
+ ],
+ "build": [],
+ "id_key": "vector_id",
+ "vector_path_key": "path",
+ "default_group": "remora",
+ "equivalent": {},
+ "entrypoint_command": [
+  "python3",
+  "-B",
+  "ca_case.py",
+  "guidance",
+  "{vector}"
+ ],
+ "outcome_from": [
+  "missing_evidence",
+  "decisive_if"
+ ],
+ "vectors": "ca_vectors.json",
+ "mutants": {
+  "remora": [
+   {
+    "label": "CONTROL positive: _unknown returns ESTABLISHED",
+    "control": true,
+    "control_polarity": "positive",
+    "anchor": "return _result(claim, EvidenceStatus.NOT_ESTABLISHED, reason, scope)",
+    "replacement": "return _result(claim, EvidenceStatus.ESTABLISHED, reason, scope)"
+   },
+   {
+    "label": "CONTROL inert: docstring edit",
+    "control": true,
+    "control_polarity": "inert",
+    "anchor": "\"\"\"Does accepted evidence establish a covering admission for this execution?",
+    "replacement": "\"\"\"Does accepted evidence establish a covering admission for this execution (inert)?"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'execution_observation_unaccepted_or_missing' half `o.get(\"effect_source_accepted\") is not True` removed",
+    "anchor": "    if o.get(\"effect_source_accepted\") is not True or o.get(\"effect_seen\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n",
+    "replacement": "    if o.get(\"effect_seen\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'execution_observation_unaccepted_or_missing' half `o.get(\"effect_seen\") is not True` removed",
+    "anchor": "    if o.get(\"effect_source_accepted\") is not True or o.get(\"effect_seen\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n",
+    "replacement": "    if o.get(\"effect_source_accepted\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'scope_unaccepted_or_missing' removed",
+    "anchor": "    if o.get(\"scope_accepted\") is not True:\n        return _unknown(claim, \"scope_unaccepted_or_missing\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"scope_unaccepted_or_missing\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'admission_observation_unaccepted' removed",
+    "anchor": "        if o.get(\"admission_source_accepted\") is not True:\n            return _unknown(claim, \"admission_observation_unaccepted\", scope)\n",
+    "replacement": "        if False:\n            return _unknown(claim, \"admission_observation_unaccepted\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'admission_presence_unknown' removed",
+    "anchor": "    if o.get(\"admission_present\") is not False:\n        return _unknown(claim, \"admission_presence_unknown\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"admission_presence_unknown\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'admission_requirement_not_defined' removed",
+    "anchor": "    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'observation_window_open' removed",
+    "anchor": "    if o.get(\"window_finalized\") is not True:\n        return _unknown(claim, \"observation_window_open\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"observation_window_open\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: guard 'admission_coverage_incomplete' removed",
+    "anchor": "    if o.get(\"admission_coverage_complete\") is not True:\n        return _unknown(claim, \"admission_coverage_incomplete\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"admission_coverage_incomplete\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'route_observation_unaccepted_or_missing' removed",
+    "anchor": "    if o.get(\"route_observation_accepted\") is not True:\n        return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'target_or_operation_not_bound' removed",
+    "anchor": "    if o.get(\"same_protected_operation\") is not True:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'alternative_route_not_established' removed",
+    "anchor": "    if o.get(\"outside_required_pep\") is not True:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'protected_effect_observation_unaccepted' removed",
+    "anchor": "    if o.get(\"effect_observation_accepted\") is not True:\n        return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'protected_effect_unknown' removed",
+    "anchor": "    if o.get(\"protected_effect_observed\") is not False:\n        return _unknown(claim, \"protected_effect_unknown\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"protected_effect_unknown\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'no_effect_observation_not_complete' removed",
+    "anchor": "    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'valid_control_missing_or_incomparable' removed",
+    "anchor": "    if o.get(\"valid_control_same_context\") is not True:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n"
+   },
+   {
+    "label": "[1] tested_route_enforcement: guard 'refusal_not_attributed_to_required_boundary' removed",
+    "anchor": "    if o.get(\"required_boundary_refusal_accepted\") is not True:\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'readback_unavailable' removed",
+    "anchor": "    if o.get(\"readback_available\") is not True:\n        return _unknown(claim, \"readback_unavailable\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"readback_unavailable\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'readback_source_not_accepted' removed",
+    "anchor": "    if o.get(\"source_accepted\") is not True:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'target_or_predicate_not_bound' removed",
+    "anchor": "    if o.get(\"same_target_and_predicate\") is not True:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'readback_stale_or_time_unbound' removed",
+    "anchor": "    if o.get(\"fresh_in_declared_window\") is not True:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'declared_settlement_point_not_reached' removed",
+    "anchor": "    if o.get(\"settlement_reached\") is not True:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n",
+    "replacement": "    if False:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'state_value_missing' half `\"expected_state\" not in o` removed",
+    "anchor": "    if \"expected_state\" not in o or \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n",
+    "replacement": "    if \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n"
+   },
+   {
+    "label": "[1] postcondition_observed: guard 'state_value_missing' half `\"observed_state\" not in o` removed",
+    "anchor": "    if \"expected_state\" not in o or \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n",
+    "replacement": "    if \"expected_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n"
+   },
+   {
+    "label": "[1] admission_accounting: admission_matches check removed",
+    "anchor": "        if o.get(\"admission_matches\") is True:\n",
+    "replacement": "        if True:\n"
+   },
+   {
+    "label": "[2] absent admission returned as violated after the presence check",
+    "anchor": "    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n",
+    "replacement": "    return _result(\n        claim,\n        EvidenceStatus.VIOLATED,\n        \"mandatory_admission_absent_in_complete_bounded_history\",\n        scope,\n    )\n    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n"
+   },
+   {
+    "label": "[3] no observed effect credited as enforcement, skipping window/control/attribution",
+    "anchor": "    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n",
+    "replacement": "    return _result(\n        claim,\n        EvidenceStatus.ESTABLISHED,\n        \"named_route_refused_at_required_boundary_in_test_scope\",\n        scope,\n    )\n    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n"
+   },
+   {
+    "label": "[4] admission_accounting: every `is True` check relaxed to truthiness",
+    "anchor": "def admission_accounting(o: Mapping[str, Any], scope: Mapping[str, Any] | None) -> EvidenceVerdict:\n    \"\"\"Does accepted evidence establish a covering admission for this execution?\n\n    Missing admission evidence is decisive only under an independently justified\n    closed-world premise: mandatory admission, finalized window and complete\n    admission coverage for the bounded scope.\n    \"\"\"\n    claim = \"admission_accounting\"\n    if o.get(\"effect_source_accepted\") is not True or o.get(\"effect_seen\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n    if o.get(\"scope_accepted\") is not True:\n        return _unknown(claim, \"scope_unaccepted_or_missing\", scope)\n    if o.get(\"admission_present\") is True:\n        if o.get(\"admission_source_accepted\") is not True:\n            return _unknown(claim, \"admission_observation_unaccepted\", scope)\n        if o.get(\"admission_matches\") is True:\n            return _result(\n                claim,\n                EvidenceStatus.ESTABLISHED,\n                \"covering_admission_observed_for_this_execution\",\n                scope,\n            )\n        return _unknown(claim, \"candidate_admission_does_not_establish_a_covering_admission\", scope)\n    if o.get(\"admission_present\") is not False:\n        return _unknown(claim, \"admission_presence_unknown\", scope)\n    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n    if o.get(\"window_finalized\") is not True:\n        return _unknown(claim, \"observation_window_open\", scope)\n    if o.get(\"admission_coverage_complete\") is not True:\n        return _unknown(claim, \"admission_coverage_incomplete\", scope)\n    return _result(\n        claim,\n        EvidenceStatus.VIOLATED,\n        \"mandatory_admission_absent_in_complete_bounded_history\",\n        scope,\n    )",
+    "replacement": "def admission_accounting(o: Mapping[str, Any], scope: Mapping[str, Any] | None) -> EvidenceVerdict:\n    \"\"\"Does accepted evidence establish a covering admission for this execution?\n\n    Missing admission evidence is decisive only under an independently justified\n    closed-world premise: mandatory admission, finalized window and complete\n    admission coverage for the bounded scope.\n    \"\"\"\n    claim = \"admission_accounting\"\n    if not o.get(\"effect_source_accepted\") or not o.get(\"effect_seen\"):\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n    if not o.get(\"scope_accepted\"):\n        return _unknown(claim, \"scope_unaccepted_or_missing\", scope)\n    if o.get(\"admission_present\"):\n        if not o.get(\"admission_source_accepted\"):\n            return _unknown(claim, \"admission_observation_unaccepted\", scope)\n        if o.get(\"admission_matches\"):\n            return _result(\n                claim,\n                EvidenceStatus.ESTABLISHED,\n                \"covering_admission_observed_for_this_execution\",\n                scope,\n            )\n        return _unknown(claim, \"candidate_admission_does_not_establish_a_covering_admission\", scope)\n    if o.get(\"admission_present\") is not False:\n        return _unknown(claim, \"admission_presence_unknown\", scope)\n    if not o.get(\"mandatory_admission\"):\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n    if not o.get(\"window_finalized\"):\n        return _unknown(claim, \"observation_window_open\", scope)\n    if not o.get(\"admission_coverage_complete\"):\n        return _unknown(claim, \"admission_coverage_incomplete\", scope)\n    return _result(\n        claim,\n        EvidenceStatus.VIOLATED,\n        \"mandatory_admission_absent_in_complete_bounded_history\",\n        scope,\n    )"
+   },
+   {
+    "label": "[4] tested_route_enforcement: every `is True` check relaxed to truthiness",
+    "anchor": "def tested_route_enforcement(o: Mapping[str, Any], scope: Mapping[str, Any] | None) -> EvidenceVerdict:\n    \"\"\"Did the named alternative route enforce the required boundary?\n\n    A direct accepted effect outside the required PEP is a counterexample.\n    A refusal earns positive credit only with an isolating control, complete\n    downstream observation and accepted attribution to the required boundary.\n    \"\"\"\n    claim = \"tested_route_enforcement\"\n    if o.get(\"route_observation_accepted\") is not True:\n        return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)\n    if o.get(\"same_protected_operation\") is not True:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n    if o.get(\"outside_required_pep\") is not True:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n    if o.get(\"effect_observation_accepted\") is not True:\n        return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)\n    if o.get(\"protected_effect_observed\") is True:\n        return _result(\n            claim,\n            EvidenceStatus.VIOLATED,\n            \"accepted_effect_observed_outside_required_pep\",\n            scope,\n        )\n    if o.get(\"protected_effect_observed\") is not False:\n        return _unknown(claim, \"protected_effect_unknown\", scope)\n    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n    if o.get(\"valid_control_same_context\") is not True:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n    if o.get(\"required_boundary_refusal_accepted\") is not True:\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n    return _result(\n        claim,\n        EvidenceStatus.ESTABLISHED,\n        \"named_route_refused_at_required_boundary_in_test_scope\",\n        scope,\n    )",
+    "replacement": "def tested_route_enforcement(o: Mapping[str, Any], scope: Mapping[str, Any] | None) -> EvidenceVerdict:\n    \"\"\"Did the named alternative route enforce the required boundary?\n\n    A direct accepted effect outside the required PEP is a counterexample.\n    A refusal earns positive credit only with an isolating control, complete\n    downstream observation and accepted attribution to the required boundary.\n    \"\"\"\n    claim = \"tested_route_enforcement\"\n    if not o.get(\"route_observation_accepted\"):\n        return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)\n    if not o.get(\"same_protected_operation\"):\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n    if not o.get(\"outside_required_pep\"):\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n    if not o.get(\"effect_observation_accepted\"):\n        return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)\n    if o.get(\"protected_effect_observed\"):\n        return _result(\n            claim,\n            EvidenceStatus.VIOLATED,\n            \"accepted_effect_observed_outside_required_pep\",\n            scope,\n        )\n    if o.get(\"protected_effect_observed\") is not False:\n        return _unknown(claim, \"protected_effect_unknown\", scope)\n    if not o.get(\"effect_window_complete\"):\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n    if not o.get(\"valid_control_same_context\"):\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n    if not o.get(\"required_boundary_refusal_accepted\"):\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n    return _result(\n        claim,\n        EvidenceStatus.ESTABLISHED,\n        \"named_route_refused_at_required_boundary_in_test_scope\",\n        scope,\n    )"
+   },
+   {
+    "label": "[4] postcondition_observed: every `is True` check relaxed to truthiness",
+    "anchor": "def postcondition_observed(o: Mapping[str, Any], scope: Mapping[str, Any] | None) -> EvidenceVerdict:\n    \"\"\"Does accepted read-back establish the declared postcondition at its observation point?\n\n    This deliberately does not establish causation, lasting state or policy\n    correctness. Tool self-report is irrelevant to the predicate.\n    \"\"\"\n    claim = \"postcondition_observed\"\n    if o.get(\"readback_available\") is not True:\n        return _unknown(claim, \"readback_unavailable\", scope)\n    if o.get(\"source_accepted\") is not True:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n    if o.get(\"same_target_and_predicate\") is not True:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n    if o.get(\"fresh_in_declared_window\") is not True:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n    if o.get(\"settlement_reached\") is not True:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n    if \"expected_state\" not in o or \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n    if canonical(o[\"expected_state\"]) == canonical(o[\"observed_state\"]):\n        return _result(\n            claim,\n            EvidenceStatus.ESTABLISHED,\n            \"declared_postcondition_observed_at_named_point\",\n            scope,\n        )\n    return _result(\n        claim,\n        EvidenceStatus.VIOLATED,\n        \"declared_postcondition_disagreed_at_named_point\",\n        scope,\n    )",
+    "replacement": "def postcondition_observed(o: Mapping[str, Any], scope: Mapping[str, Any] | None) -> EvidenceVerdict:\n    \"\"\"Does accepted read-back establish the declared postcondition at its observation point?\n\n    This deliberately does not establish causation, lasting state or policy\n    correctness. Tool self-report is irrelevant to the predicate.\n    \"\"\"\n    claim = \"postcondition_observed\"\n    if not o.get(\"readback_available\"):\n        return _unknown(claim, \"readback_unavailable\", scope)\n    if not o.get(\"source_accepted\"):\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n    if not o.get(\"same_target_and_predicate\"):\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n    if not o.get(\"fresh_in_declared_window\"):\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n    if not o.get(\"settlement_reached\"):\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n    if \"expected_state\" not in o or \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n    if canonical(o[\"expected_state\"]) == canonical(o[\"observed_state\"]):\n        return _result(\n            claim,\n            EvidenceStatus.ESTABLISHED,\n            \"declared_postcondition_observed_at_named_point\",\n            scope,\n        )\n    return _result(\n        claim,\n        EvidenceStatus.VIOLATED,\n        \"declared_postcondition_disagreed_at_named_point\",\n        scope,\n    )"
+   },
+   {
+    "label": "[5] postcondition: canonical comparison replaced by raw equality",
+    "anchor": "if canonical(o[\"expected_state\"]) == canonical(o[\"observed_state\"]):",
+    "replacement": "if o[\"expected_state\"] == o[\"observed_state\"]:"
+   },
+   {
+    "label": "[6] admission_accounting: guards 'execution_observation_unaccepted_or_missing' and 'scope_unaccepted_or_missing' swapped",
+    "anchor": "    if o.get(\"effect_source_accepted\") is not True or o.get(\"effect_seen\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n    if o.get(\"scope_accepted\") is not True:\n        return _unknown(claim, \"scope_unaccepted_or_missing\", scope)\n",
+    "replacement": "    if o.get(\"scope_accepted\") is not True:\n        return _unknown(claim, \"scope_unaccepted_or_missing\", scope)\n    if o.get(\"effect_source_accepted\") is not True or o.get(\"effect_seen\") is not True:\n        return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)\n"
+   },
+   {
+    "label": "[6] admission_accounting: guards 'admission_presence_unknown' and 'admission_requirement_not_defined' swapped",
+    "anchor": "    if o.get(\"admission_present\") is not False:\n        return _unknown(claim, \"admission_presence_unknown\", scope)\n    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n",
+    "replacement": "    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n    if o.get(\"admission_present\") is not False:\n        return _unknown(claim, \"admission_presence_unknown\", scope)\n"
+   },
+   {
+    "label": "[6] admission_accounting: guards 'admission_requirement_not_defined' and 'observation_window_open' swapped",
+    "anchor": "    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n    if o.get(\"window_finalized\") is not True:\n        return _unknown(claim, \"observation_window_open\", scope)\n",
+    "replacement": "    if o.get(\"window_finalized\") is not True:\n        return _unknown(claim, \"observation_window_open\", scope)\n    if o.get(\"mandatory_admission\") is not True:\n        return _unknown(claim, \"admission_requirement_not_defined\", scope)\n"
+   },
+   {
+    "label": "[6] admission_accounting: guards 'observation_window_open' and 'admission_coverage_incomplete' swapped",
+    "anchor": "    if o.get(\"window_finalized\") is not True:\n        return _unknown(claim, \"observation_window_open\", scope)\n    if o.get(\"admission_coverage_complete\") is not True:\n        return _unknown(claim, \"admission_coverage_incomplete\", scope)\n",
+    "replacement": "    if o.get(\"admission_coverage_complete\") is not True:\n        return _unknown(claim, \"admission_coverage_incomplete\", scope)\n    if o.get(\"window_finalized\") is not True:\n        return _unknown(claim, \"observation_window_open\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: guards 'route_observation_unaccepted_or_missing' and 'target_or_operation_not_bound' swapped",
+    "anchor": "    if o.get(\"route_observation_accepted\") is not True:\n        return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)\n    if o.get(\"same_protected_operation\") is not True:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n",
+    "replacement": "    if o.get(\"same_protected_operation\") is not True:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n    if o.get(\"route_observation_accepted\") is not True:\n        return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: guards 'target_or_operation_not_bound' and 'alternative_route_not_established' swapped",
+    "anchor": "    if o.get(\"same_protected_operation\") is not True:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n    if o.get(\"outside_required_pep\") is not True:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n",
+    "replacement": "    if o.get(\"outside_required_pep\") is not True:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n    if o.get(\"same_protected_operation\") is not True:\n        return _unknown(claim, \"target_or_operation_not_bound\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: guards 'alternative_route_not_established' and 'protected_effect_observation_unaccepted' swapped",
+    "anchor": "    if o.get(\"outside_required_pep\") is not True:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n    if o.get(\"effect_observation_accepted\") is not True:\n        return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)\n",
+    "replacement": "    if o.get(\"effect_observation_accepted\") is not True:\n        return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)\n    if o.get(\"outside_required_pep\") is not True:\n        return _unknown(claim, \"alternative_route_not_established\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: guards 'protected_effect_unknown' and 'no_effect_observation_not_complete' swapped",
+    "anchor": "    if o.get(\"protected_effect_observed\") is not False:\n        return _unknown(claim, \"protected_effect_unknown\", scope)\n    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n",
+    "replacement": "    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n    if o.get(\"protected_effect_observed\") is not False:\n        return _unknown(claim, \"protected_effect_unknown\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: guards 'no_effect_observation_not_complete' and 'valid_control_missing_or_incomparable' swapped",
+    "anchor": "    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n    if o.get(\"valid_control_same_context\") is not True:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n",
+    "replacement": "    if o.get(\"valid_control_same_context\") is not True:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n    if o.get(\"effect_window_complete\") is not True:\n        return _unknown(claim, \"no_effect_observation_not_complete\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: guards 'valid_control_missing_or_incomparable' and 'refusal_not_attributed_to_required_boundary' swapped",
+    "anchor": "    if o.get(\"valid_control_same_context\") is not True:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n    if o.get(\"required_boundary_refusal_accepted\") is not True:\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n",
+    "replacement": "    if o.get(\"required_boundary_refusal_accepted\") is not True:\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n    if o.get(\"valid_control_same_context\") is not True:\n        return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)\n"
+   },
+   {
+    "label": "[6] postcondition_observed: guards 'readback_unavailable' and 'readback_source_not_accepted' swapped",
+    "anchor": "    if o.get(\"readback_available\") is not True:\n        return _unknown(claim, \"readback_unavailable\", scope)\n    if o.get(\"source_accepted\") is not True:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n",
+    "replacement": "    if o.get(\"source_accepted\") is not True:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n    if o.get(\"readback_available\") is not True:\n        return _unknown(claim, \"readback_unavailable\", scope)\n"
+   },
+   {
+    "label": "[6] postcondition_observed: guards 'readback_source_not_accepted' and 'target_or_predicate_not_bound' swapped",
+    "anchor": "    if o.get(\"source_accepted\") is not True:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n    if o.get(\"same_target_and_predicate\") is not True:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n",
+    "replacement": "    if o.get(\"same_target_and_predicate\") is not True:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n    if o.get(\"source_accepted\") is not True:\n        return _unknown(claim, \"readback_source_not_accepted\", scope)\n"
+   },
+   {
+    "label": "[6] postcondition_observed: guards 'target_or_predicate_not_bound' and 'readback_stale_or_time_unbound' swapped",
+    "anchor": "    if o.get(\"same_target_and_predicate\") is not True:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n    if o.get(\"fresh_in_declared_window\") is not True:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n",
+    "replacement": "    if o.get(\"fresh_in_declared_window\") is not True:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n    if o.get(\"same_target_and_predicate\") is not True:\n        return _unknown(claim, \"target_or_predicate_not_bound\", scope)\n"
+   },
+   {
+    "label": "[6] postcondition_observed: guards 'readback_stale_or_time_unbound' and 'declared_settlement_point_not_reached' swapped",
+    "anchor": "    if o.get(\"fresh_in_declared_window\") is not True:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n    if o.get(\"settlement_reached\") is not True:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n",
+    "replacement": "    if o.get(\"settlement_reached\") is not True:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n    if o.get(\"fresh_in_declared_window\") is not True:\n        return _unknown(claim, \"readback_stale_or_time_unbound\", scope)\n"
+   },
+   {
+    "label": "[6] postcondition_observed: guards 'declared_settlement_point_not_reached' and 'state_value_missing' swapped",
+    "anchor": "    if o.get(\"settlement_reached\") is not True:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n    if \"expected_state\" not in o or \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n",
+    "replacement": "    if \"expected_state\" not in o or \"observed_state\" not in o:\n        return _unknown(claim, \"state_value_missing\", scope)\n    if o.get(\"settlement_reached\") is not True:\n        return _unknown(claim, \"declared_settlement_point_not_reached\", scope)\n"
+   },
+   {
+    "label": "[6] tested_route_enforcement: attribution checked before the observed-effect violation (B01 precedence)",
+    "anchor": "    if o.get(\"protected_effect_observed\") is True:\n",
+    "replacement": "    if o.get(\"required_boundary_refusal_accepted\") is not True:\n        return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)\n    if o.get(\"protected_effect_observed\") is True:\n"
+   },
+   {
+    "label": "[7] terminal 'covering_admission_observed_for_this_execution': ESTABLISHED flipped to VIOLATED",
+    "anchor": "EvidenceStatus.ESTABLISHED,\n                \"covering_admission_observed_for_this_execution\",",
+    "replacement": "EvidenceStatus.VIOLATED,\n                \"covering_admission_observed_for_this_execution\","
+   },
+   {
+    "label": "[7] terminal 'mandatory_admission_absent_in_complete_bounded_history': VIOLATED flipped to ESTABLISHED",
+    "anchor": "EvidenceStatus.VIOLATED,\n        \"mandatory_admission_absent_in_complete_bounded_history\",",
+    "replacement": "EvidenceStatus.ESTABLISHED,\n        \"mandatory_admission_absent_in_complete_bounded_history\","
+   },
+   {
+    "label": "[7] terminal 'accepted_effect_observed_outside_required_pep': VIOLATED flipped to ESTABLISHED",
+    "anchor": "EvidenceStatus.VIOLATED,\n            \"accepted_effect_observed_outside_required_pep\",",
+    "replacement": "EvidenceStatus.ESTABLISHED,\n            \"accepted_effect_observed_outside_required_pep\","
+   },
+   {
+    "label": "[7] terminal 'named_route_refused_at_required_boundary_in_test_scope': ESTABLISHED flipped to VIOLATED",
+    "anchor": "EvidenceStatus.ESTABLISHED,\n        \"named_route_refused_at_required_boundary_in_test_scope\",",
+    "replacement": "EvidenceStatus.VIOLATED,\n        \"named_route_refused_at_required_boundary_in_test_scope\","
+   },
+   {
+    "label": "[7] terminal 'declared_postcondition_observed_at_named_point': ESTABLISHED flipped to VIOLATED",
+    "anchor": "EvidenceStatus.ESTABLISHED,\n            \"declared_postcondition_observed_at_named_point\",",
+    "replacement": "EvidenceStatus.VIOLATED,\n            \"declared_postcondition_observed_at_named_point\","
+   },
+   {
+    "label": "[7] terminal 'declared_postcondition_disagreed_at_named_point': VIOLATED flipped to ESTABLISHED",
+    "anchor": "EvidenceStatus.VIOLATED,\n        \"declared_postcondition_disagreed_at_named_point\",",
+    "replacement": "EvidenceStatus.ESTABLISHED,\n        \"declared_postcondition_disagreed_at_named_point\","
+   },
+   {
+    "label": "[8] reason 'execution_observation_unaccepted_or_missing' changed",
+    "anchor": "return _unknown(claim, \"execution_observation_unaccepted_or_missing\", scope)",
+    "replacement": "return _unknown(claim, \"execution_observation_unaccepted_or_missing_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'scope_unaccepted_or_missing' changed",
+    "anchor": "return _unknown(claim, \"scope_unaccepted_or_missing\", scope)",
+    "replacement": "return _unknown(claim, \"scope_unaccepted_or_missing_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'admission_observation_unaccepted' changed",
+    "anchor": "return _unknown(claim, \"admission_observation_unaccepted\", scope)",
+    "replacement": "return _unknown(claim, \"admission_observation_unaccepted_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'candidate_admission_does_not_establish_a_covering_admission' changed",
+    "anchor": "return _unknown(claim, \"candidate_admission_does_not_establish_a_covering_admission\", scope)",
+    "replacement": "return _unknown(claim, \"candidate_admission_does_not_establish_a_covering_admission_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'admission_presence_unknown' changed",
+    "anchor": "return _unknown(claim, \"admission_presence_unknown\", scope)",
+    "replacement": "return _unknown(claim, \"admission_presence_unknown_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'admission_requirement_not_defined' changed",
+    "anchor": "return _unknown(claim, \"admission_requirement_not_defined\", scope)",
+    "replacement": "return _unknown(claim, \"admission_requirement_not_defined_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'observation_window_open' changed",
+    "anchor": "return _unknown(claim, \"observation_window_open\", scope)",
+    "replacement": "return _unknown(claim, \"observation_window_open_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'admission_coverage_incomplete' changed",
+    "anchor": "return _unknown(claim, \"admission_coverage_incomplete\", scope)",
+    "replacement": "return _unknown(claim, \"admission_coverage_incomplete_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'route_observation_unaccepted_or_missing' changed",
+    "anchor": "return _unknown(claim, \"route_observation_unaccepted_or_missing\", scope)",
+    "replacement": "return _unknown(claim, \"route_observation_unaccepted_or_missing_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'target_or_operation_not_bound' changed",
+    "anchor": "return _unknown(claim, \"target_or_operation_not_bound\", scope)",
+    "replacement": "return _unknown(claim, \"target_or_operation_not_bound_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'alternative_route_not_established' changed",
+    "anchor": "return _unknown(claim, \"alternative_route_not_established\", scope)",
+    "replacement": "return _unknown(claim, \"alternative_route_not_established_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'protected_effect_observation_unaccepted' changed",
+    "anchor": "return _unknown(claim, \"protected_effect_observation_unaccepted\", scope)",
+    "replacement": "return _unknown(claim, \"protected_effect_observation_unaccepted_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'protected_effect_unknown' changed",
+    "anchor": "return _unknown(claim, \"protected_effect_unknown\", scope)",
+    "replacement": "return _unknown(claim, \"protected_effect_unknown_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'no_effect_observation_not_complete' changed",
+    "anchor": "return _unknown(claim, \"no_effect_observation_not_complete\", scope)",
+    "replacement": "return _unknown(claim, \"no_effect_observation_not_complete_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'valid_control_missing_or_incomparable' changed",
+    "anchor": "return _unknown(claim, \"valid_control_missing_or_incomparable\", scope)",
+    "replacement": "return _unknown(claim, \"valid_control_missing_or_incomparable_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'refusal_not_attributed_to_required_boundary' changed",
+    "anchor": "return _unknown(claim, \"refusal_not_attributed_to_required_boundary\", scope)",
+    "replacement": "return _unknown(claim, \"refusal_not_attributed_to_required_boundary_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'readback_unavailable' changed",
+    "anchor": "return _unknown(claim, \"readback_unavailable\", scope)",
+    "replacement": "return _unknown(claim, \"readback_unavailable_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'readback_source_not_accepted' changed",
+    "anchor": "return _unknown(claim, \"readback_source_not_accepted\", scope)",
+    "replacement": "return _unknown(claim, \"readback_source_not_accepted_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'target_or_predicate_not_bound' changed",
+    "anchor": "return _unknown(claim, \"target_or_predicate_not_bound\", scope)",
+    "replacement": "return _unknown(claim, \"target_or_predicate_not_bound_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'readback_stale_or_time_unbound' changed",
+    "anchor": "return _unknown(claim, \"readback_stale_or_time_unbound\", scope)",
+    "replacement": "return _unknown(claim, \"readback_stale_or_time_unbound_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'declared_settlement_point_not_reached' changed",
+    "anchor": "return _unknown(claim, \"declared_settlement_point_not_reached\", scope)",
+    "replacement": "return _unknown(claim, \"declared_settlement_point_not_reached_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'state_value_missing' changed",
+    "anchor": "return _unknown(claim, \"state_value_missing\", scope)",
+    "replacement": "return _unknown(claim, \"state_value_missing_x\", scope)"
+   },
+   {
+    "label": "[8] reason 'covering_admission_observed_for_this_execution' changed",
+    "anchor": "EvidenceStatus.ESTABLISHED,\n                \"covering_admission_observed_for_this_execution\",",
+    "replacement": "EvidenceStatus.ESTABLISHED,\n                \"covering_admission_observed_for_this_execution_x\","
+   },
+   {
+    "label": "[8] reason 'mandatory_admission_absent_in_complete_bounded_history' changed",
+    "anchor": "EvidenceStatus.VIOLATED,\n        \"mandatory_admission_absent_in_complete_bounded_history\",",
+    "replacement": "EvidenceStatus.VIOLATED,\n        \"mandatory_admission_absent_in_complete_bounded_history_x\","
+   },
+   {
+    "label": "[8] reason 'accepted_effect_observed_outside_required_pep' changed",
+    "anchor": "EvidenceStatus.VIOLATED,\n            \"accepted_effect_observed_outside_required_pep\",",
+    "replacement": "EvidenceStatus.VIOLATED,\n            \"accepted_effect_observed_outside_required_pep_x\","
+   },
+   {
+    "label": "[8] reason 'named_route_refused_at_required_boundary_in_test_scope' changed",
+    "anchor": "EvidenceStatus.ESTABLISHED,\n        \"named_route_refused_at_required_boundary_in_test_scope\",",
+    "replacement": "EvidenceStatus.ESTABLISHED,\n        \"named_route_refused_at_required_boundary_in_test_scope_x\","
+   },
+   {
+    "label": "[8] reason 'declared_postcondition_observed_at_named_point' changed",
+    "anchor": "EvidenceStatus.ESTABLISHED,\n            \"declared_postcondition_observed_at_named_point\",",
+    "replacement": "EvidenceStatus.ESTABLISHED,\n            \"declared_postcondition_observed_at_named_point_x\","
+   },
+   {
+    "label": "[8] reason 'declared_postcondition_disagreed_at_named_point' changed",
+    "anchor": "EvidenceStatus.VIOLATED,\n        \"declared_postcondition_disagreed_at_named_point\",",
+    "replacement": "EvidenceStatus.VIOLATED,\n        \"declared_postcondition_disagreed_at_named_point_x\","
+   },
+   {
+    "label": "[G] _result: guidance never attached",
+    "anchor": "if status is EvidenceStatus.NOT_ESTABLISHED and reason in _REASON_GUIDANCE:",
+    "replacement": "if False:"
+   },
+   {
+    "label": "[G] guidance decisive_if for 'execution_observation_unaccepted_or_missing' changed",
+    "anchor": "\"supply an independently accepted observation of the execution or effect\"",
+    "replacement": "\"supply an independently accepted observation of the execution or effect (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'scope_unaccepted_or_missing' changed",
+    "anchor": "\"bind the evidence to the authority, tenant, target, operation, attempt and interval\"",
+    "replacement": "\"bind the evidence to the authority, tenant, target, operation, attempt and interval (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'admission_observation_unaccepted' changed",
+    "anchor": "\"establish provenance and acceptance for the candidate admission record\"",
+    "replacement": "\"establish provenance and acceptance for the candidate admission record (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'candidate_admission_does_not_establish_a_covering_admission' changed",
+    "anchor": "\"supply a candidate admission that joins to the same bounded action context\"",
+    "replacement": "\"supply a candidate admission that joins to the same bounded action context (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'admission_presence_unknown' changed",
+    "anchor": "\"determine whether a candidate covering admission is present in the observation set\"",
+    "replacement": "\"determine whether a candidate covering admission is present in the observation set (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'admission_requirement_not_defined' changed",
+    "anchor": "\"state the rule requiring a covering admission for this action class\"",
+    "replacement": "\"state the rule requiring a covering admission for this action class (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'observation_window_open' changed",
+    "anchor": "\"close the interval under a stated finalization/watermark rule\"",
+    "replacement": "\"close the interval under a stated finalization/watermark rule (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'admission_coverage_incomplete' changed",
+    "anchor": "\"justify capture/export completeness for every admission stream in scope\"",
+    "replacement": "\"justify capture/export completeness for every admission stream in scope (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'route_observation_unaccepted_or_missing' changed",
+    "anchor": "\"supply accepted evidence that the named route was actually exercised\"",
+    "replacement": "\"supply accepted evidence that the named route was actually exercised (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'target_or_operation_not_bound' changed",
+    "anchor": "\"bind the route/control evidence to the same protected operation\"",
+    "replacement": "\"bind the route/control evidence to the same protected operation (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'alternative_route_not_established' changed",
+    "anchor": "\"establish that the tested route is genuinely outside the required enforcement point\"",
+    "replacement": "\"establish that the tested route is genuinely outside the required enforcement point (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'protected_effect_observation_unaccepted' changed",
+    "anchor": "\"supply accepted downstream evidence for the protected effect\"",
+    "replacement": "\"supply accepted downstream evidence for the protected effect (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'protected_effect_unknown' changed",
+    "anchor": "\"observe whether the protected effect occurred for the named attempt\"",
+    "replacement": "\"observe whether the protected effect occurred for the named attempt (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'no_effect_observation_not_complete' changed",
+    "anchor": "\"close the downstream observation window before inferring non-occurrence\"",
+    "replacement": "\"close the downstream observation window before inferring non-occurrence (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'valid_control_missing_or_incomparable' changed",
+    "anchor": "\"show the same route and operation succeeds when the tested boundary condition is absent\"",
+    "replacement": "\"show the same route and operation succeeds when the tested boundary condition is absent (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'refusal_not_attributed_to_required_boundary' changed",
+    "anchor": "\"identify the required boundary as the cause of refusal rather than inferring it from 403/no-effect\"",
+    "replacement": "\"identify the required boundary as the cause of refusal rather than inferring it from 403/no-effect (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'readback_unavailable' changed",
+    "anchor": "\"obtain a read-back from the declared observation source\"",
+    "replacement": "\"obtain a read-back from the declared observation source (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'readback_source_not_accepted' changed",
+    "anchor": "\"establish provenance/trust for the read-back source\"",
+    "replacement": "\"establish provenance/trust for the read-back source (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'target_or_predicate_not_bound' changed",
+    "anchor": "\"bind expected and observed state to the same target and predicate\"",
+    "replacement": "\"bind expected and observed state to the same target and predicate (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'readback_stale_or_time_unbound' changed",
+    "anchor": "\"obtain a fresh observation bound to the declared settlement interval\"",
+    "replacement": "\"obtain a fresh observation bound to the declared settlement interval (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'declared_settlement_point_not_reached' changed",
+    "anchor": "\"wait for the declared deadline/settlement point before appraising the postcondition\"",
+    "replacement": "\"wait for the declared deadline/settlement point before appraising the postcondition (mutated)\""
+   },
+   {
+    "label": "[G] guidance decisive_if for 'state_value_missing' changed",
+    "anchor": "\"supply both sides of the declared postcondition comparison\"",
+    "replacement": "\"supply both sides of the declared postcondition comparison (mutated)\""
+   }
+  ]
+ }
+}

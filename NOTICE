@@ -1,0 +1,10 @@
+SPDX-License-Identifier: BUSL-1.1
+Author: Stian Skogbrott
+Copyright (C) 2026 Stian Skogbrott.
+
+The manifests (ca_row*.manifest.json) and mutants.json in this package quote lines and whole functions of
+conformance/evidence-sufficiency-v1/checker.py from darklordVirtual/REMORA-research at
+31c4060630923344d43d9fac26821150262c3687 as mutation anchors and replacements. That material is licensed under
+the Business Source License 1.1 as stated in that repository's LICENSE, and this notice applies to it wherever it
+appears here. Used for non-production evaluation. The adapter files (ca_case.py, ca_runner.py), gen_mutants.py and
+REPORT.md are Rul1an's and add no licence to the quoted material.
